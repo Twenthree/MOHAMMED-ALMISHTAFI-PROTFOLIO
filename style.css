@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #050507, #030020, #24243e);
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+    box-shadow: 0 0 3px white;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; 
+    }
+    50% { opacity: 1; 
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+header {
+    padding: 10px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #000428 0%, #060885 100%);
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    border-radius: 30px;
+    display: flex;
+    justify-content: left;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(123, 174, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
+}
+
+nav {
+    padding: 2px;
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #0d1558;
+}
+
+h1 {
+   font-size: 4rem;
+   margin-bottom: 20px;
+   color: #ffffff;
+   position: relative;
+   z-index: 1;
+   animation: fadeInDown 1s ease-out;
+   font-weight: 900;
+   text-shadow: 0 0 30px rgba(27, 34, 228, 0.853),
+                0 0 60px rgba(20, 98, 222, 0.419);
+        }
+
+@keyframes fadeInDown {
+      from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+       to { 
+         opacity: 1;
+         transform: translateY(0);
+       }
+        }
+
+
+#hero {
+    padding: 100px 0;
+    position: relative;
+    text-align: center;
+}
+
+#about {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 2;
+    background: linear-gradient(135deg, rgba(0,4,40,0.8) 0%, rgba(9, 39, 66, 0.4) 100%);
+    border-radius: 40px;
+    border: 3px solid rgba(48, 126, 221, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInScale 1s ease-out;
+    box-shadow: 0 10px 50px rgba(67, 134, 242, 0.3);
+    padding: 50px;
+    position: relative;
+    text-align: center;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(45deg, #081769, #080a84, #092a5f);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+#about:hover::before {
+    opacity: 1;
+    animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+p {
+    padding: 3px 0;
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+#skills-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 20px;
+    min-height: 80vh;
+}
+
+/* العمود اليساري */
+.right-side,
+.left-side {
+    flex: 0 0 auto;
+    max-width: 280px;
+}
+
+.center-side {
+    flex: 0 0 auto;
+}
+
+/* المربعات الشفافة */
+.box {
+    background: rgba(3, 7, 245, 0.044);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    width: 300px;
+    border: 1px solid rgba(15, 12, 99, 0.2);
+    transition: all 0.3s;
+}
+
+.box:hover {
+    background: rgba(0, 26, 255, 0.19);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.045);
+}
+
+.box h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
+}
+
+.box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.box li {
+    padding: 8px 16px;
+    background: #1d157c;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.box li:hover {
+    background: rgba(29, 51, 171, 0.236);
+    transform: translateX(-3px);
+    box-shadow: 0 5px 15px rgba(38, 77, 228, 0.4);
+}
+
+
+/* روابط التواصل */
+.box a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background: rgba(30, 21, 124, 0.692);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.box a:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: translateX(3px);
+}
+
+
+/* الشخصية */
+
+.character-img {
+    width: 320px;
+    height: 420px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px;
+    border: 3px solid rgba(10, 7, 99, 0.3);
+    transition: transform 0.3s;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.character-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 60px rgba(6, 20, 95, 0.4);
+}
+
+/* قسم الأعمال */
+#my-project {
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#my-project h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #f1f1f4;
+    text-shadow: 0 0 20px rgba(6, 8, 133, 0.3);
+}
+
+/* حاوية الـ slider */
+.projects-slider {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 70px;
+}
+
+/* حاوية المشاريع */
+.projects-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    max-width: 760px;
+}
+
+/* بطاقة المشروع */
+.project-card {
+    min-width: 350px;
+    flex-shrink: 0;
+    background: rgba(13, 6, 201, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(133, 137, 168, 0.2);
+    transition: all 0.4s;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background: rgba(5, 18, 131, 0.15);
+    box-shadow: 0 20px 40px rgba(10, 15, 125, 0.3);
+    border-color: rgba(6, 8, 133, 0.5);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #060885;
+}
+
+.project-card p {
+    color: rgba(233, 233, 235, 0.7);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #060885, #0d1558);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 25px rgba(14, 44, 178, 0.5);
+}
+
+
+/* الأسهم */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow:hover {
+    background: rgba(167, 139, 250, 0.4);
+    border-color: #060885;
+    transform: translateY(-50%) scale(1.15);
+}
+
+.slider-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+/* ===== قسم التعليم والشهادات ===== */
+
+#education-certificates {
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#education-certificates h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+}
+
+/* صف يحتوي عمودين */
+.sections-row {
+    display: flex;
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* العمود اليميني (التعليم + المؤتمرات) */
+.right-column {
+    flex: 1;
+    max-width: 450px;
+}
+
+/* العمود اليساري (الشهادات) */
+.left-column {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* عنوان العمود */
+.column-title {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 30px 0 20px 0;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.2);
+}
+
+/* البوكس الواحد */
+.info-box {
+    background: rgba(10, 24, 213, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 35px 30px;
+    border: 1px solid rgba(12, 5, 71, 0.2);
+    transition: all 0.4s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+/* الخط الملون فوق البوكس */
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #112a9c, #040762);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.info-box:hover::before {
+    transform: scaleX(1);
+}
+
+.info-box:hover {
+    background: rgba(4, 6, 120, 0.12);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(1, 4, 94, 0.3);
+    border-color: rgba(7, 7, 100, 0.4);
+}
+
+/* الأيقونة */
+.info-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(1, 17, 90, 0.3));
+    transition: transform 0.3s;
+}
+
+.info-box:hover .info-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* التاريخ */
+.info-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* العنوان */
+.info-title {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* الوصف */
+.info-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* بوكس الشهادات (أكبر شوي) */
+.cert-box {
+    padding: 40px 35px;
+}
+
+/* رابط الشهادة */
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #0d1b58, #050b5a);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+.cert-link:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(3, 18, 83, 0.6);
+}
+
+/* للتابلت */
+@media (max-width: 1024px) {
+    .sections-row {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .right-column,
+    .left-column {
+        max-width: 100%;
+    }
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    #education-certificates h2 {
+        font-size: 2rem;
+    }
+    
+    .info-icon {
+        font-size: 3rem;
+    }
+    
+    .info-title {
+        font-size: 1.2rem;
+    }
+    
+    .column-title {
+        font-size: 1.5rem;
+    }
+    
+    .info-box {
+        padding: 30px 25px;
+    }
+}
